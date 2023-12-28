@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <!-- EL AUDIO SI NO SE ESCUCHA ES POR LOS PERMISOS DEL NAVEGADOR -->
+
+    <audio id="musica" autoplay loop >
+        <source src="canticos/cantico.mp3" type="audio/mp3">
+    </audio>
+    <div id="marcador">
+
+        <p id="goles" class="numero">0</p>
+        <p id="fallos" class="numero">0</p>
+    </div>
+
+
+
+    <button onclick="colocar()" id="colocar">Colocar bola</button>
+    <div id="bola"></div>
+    <div id="portero"></div>
+    <div id="flechas">
+        <span class="material-symbols-outlined" onclick="izq()">
+            arrow_back
+        </span>
+        <span class="material-symbols-outlined" onclick="rec()">
+            arrow_upward
+        </span>
+        <span class="material-symbols-outlined" id="der" onclick="der()">
+            arrow_forward
+        </span>
+
+
+    </div>
+
+
+    <script>
+
+      
+
+        alert("Puedes usar las flechas del teclado para tirar o los botones que hay abajo a la derecha")
+
+
+
+
+
+
+        function colocar() {
+            const bola1 = document.querySelector("#bola");
+            bola1.classList.add("colocarBola");
+
+            const portero1 = document.querySelector("#portero");
+            portero1.classList.add("colocarPortero");
+
+
+            bola1.addEventListener('animationend', function () {
+                bola1.classList.remove("colocarBola");
+            }, { once: true });
+
+
+
+            portero1.addEventListener('animationend', function () {
+                portero1.classList.remove("colocarPortero");
+            }, { once: true });
+
+
+            bola1.addEventListener('animationend', function () {
+                bola1.classList.remove("animar");
+            }, { once: true });
+
+            bola1.addEventListener('animationend', function () {
+                bola1.classList.remove("animarrec");
+            }, { once: true });
+
+            bola1.addEventListener('animationend', function () {
+                bola1.classList.remove("animarizq");
+            }, { once: true });
+
+
+            portero1.addEventListener('animationend', function () {
+                portero1.classList.remove("anider");
+            }, { once: true });
+
+            portero1.addEventListener('animationend', function () {
+                portero1.classList.remove("anirec");
+            }, { once: true });
+
+            portero1.addEventListener('animationend', function () {
+                portero1.classList.remove("aniizq");
+            }, { once: true });
+
+
+        }
+
+        let fallos1 = document.querySelector("#fallos")
+        let marcaf = 1;
+        let goles1 = document.querySelector("#goles")
+        let marcat = 1;
+
+
+
+
+        function der() {
+
+
+
+            const bola1 = document.querySelector("#bola");
+            bola1.classList.add("animar");
+
+
+
+            const portero1 = document.querySelector("#portero")
+            const movimientos = ["anider", "aniizq", "anirec"];
+            const movimientoAleatorio = movimientos[Math.floor(Math.random() * movimientos.length)];
+
+
+            portero1.classList.add(movimientoAleatorio)
+
+            if (movimientoAleatorio == "anider") {
+                setTimeout(function () {
+                    alert("Fallaste");
+                    fallos1.textContent = marcaf
+                    marcaf++;
+
+                }, 1000);
+            } else {
+                goles1.textContent = marcat
+                marcat++;
+
+            }
+
+
+        }
+        function rec() {
+            const bola1 = document.querySelector("#bola");
+
+
+            bola1.classList.add("animarrec");
+
+
+
+            const portero1 = document.querySelector("#portero")
+            const movimientos = ["anider", "aniizq", "anirec"];
+            const movimientoAleatorio = movimientos[Math.floor(Math.random() * movimientos.length)];
+
+
+            portero1.classList.add(movimientoAleatorio)
+
+
+            if (movimientoAleatorio == "anirec") {
+                setTimeout(function () {
+                    alert("Fallaste");
+                    fallos1.textContent = marcaf
+                    marcaf++;
+                }, 1000);
+            } else {
+                goles1.textContent = marcat
+                marcat++;
+
+            }
+
+
+
+
+        }
+        function izq() {
+            const bola1 = document.querySelector("#bola");
+
+            bola1.classList.add("animarizq");
+
+
+
+            const portero1 = document.querySelector("#portero")
+            const movimientos = ["anider", "aniizq", "anirec"];
+            const movimientoAleatorio = movimientos[Math.floor(Math.random() * movimientos.length)];
+
+
+            portero1.classList.add(movimientoAleatorio)
+
+
+            if (movimientoAleatorio == "aniizq") {
+                setTimeout(function () {
+                    alert("Fallaste");
+                    fallos1.textContent = marcaf
+                    marcaf++;
+                }, 1000);
+            } else {
+                goles1.textContent = marcat
+                marcat++;
+
+            }
+
+
+        }
+
+
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'ArrowRight') {
+                der();
+            }
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'ArrowLeft') {
+                izq();
+            }
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'ArrowUp') {
+                rec();
+            }
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+body{
+    background-image: url(porteria1.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+#bola{
+    background-image: url(bola.png);
+    background-size: 100%;
+    width: 70px;
+    height: 70px;
+    margin: auto;
+    margin-top: 35% ;
+    transform: translate(0, 0);
+    transition: transform 2s;
+    position: relative;
+    z-index: 50;
+}
+
+
+#portero{
+    background-image: url(portero.png);
+    background-size: 100%;
+    height: 250px;
+    width: 250px;
+    margin: auto;
+    margin-top: -500px;
+    position: relative;
+    z-index: 49;
+}
+
+#flechas{
+    width: 600px;
+    margin-top: 200px;
+    margin-left: 70%;
+}
+
+.material-symbols-outlined{
+    cursor: pointer;
+    
+}
+.material-symbols-outlined:hover{
+    color: red;
+}
+
+#izq:checked + #bola{
+    transform: translate(30px, -30px);
+}
+
+
+.animar {
+    animation: moverArribaDerecha 1s forwards;
+  }
+  
+  @keyframes moverArribaDerecha {
+    from {
+      transform: translate(0, 0);
+    }
+    to {
+        width: 50px;
+        height: 50px;
+      transform: translate(390px, -390px) rotate(90deg);
+    }
+  }
+
+  .animarrec {
+    animation: moverRecto 1s forwards;
+  }
+  
+  @keyframes moverRecto {
+    from {
+      transform: translate(0, 0);
+    }
+    to {
+        width: 50px;
+        height: 50px;
+      transform: translate(0px, -390px) rotate(90deg);
+    }
+  }
+
+  
+  .animarizq {
+    animation: moverIzq 1s forwards;
+  }
+  
+  @keyframes moverIzq {
+    from {
+
+      transform: translate(0, 0);
+    }
+    to {
+        width: 50px;
+        height: 50px;
+      transform: translate(-390px, -390px) rotate(90deg);
+    }
+  }
+
+  .anider {
+    animation: moverPorDer 1s forwards;
+  }
+  
+  @keyframes moverPorDer {
+    from {
+      transform: translate(0, 0);
+    }
+    to {
+      transform: translate(400px, 0px) rotate(45deg);
+    }
+  }
+
+
+  .aniizq {
+    animation: moverPorIzq 1s forwards;
+  }
+  
+  @keyframes moverPorIzq {
+    from {
+      transform: translate(0, 0);
+    }
+    to {
+      transform: translate(-400px, 0px) rotate(-45deg);
+    }
+  }
+
+  
+  .colocarBola {
+    animation: colocoBola 1s forwards;
+  }
+  
+  @keyframes colocoBola {
+    from {
+      transform: translate(0, 0);
+    }
+    to {
+      transform: translate(0px, 0px) rotate(-45deg);
+    }
+  }
+
+  
+  .colocarPortero {
+    animation: colocoPortero 1s forwards;
+  }
+  
+  @keyframes colocoPortero {
+    from {
+      transform: translate(0, 0);
+    }
+    to {
+      transform: translate(0px, 0px) rotate(-45deg);
+    }
+  }
+
+
+
+  
+  #goles{
+    margin-left: 20px;
+    
+    margin-top: 20px;
+    color: green;
+    float: left;
+   
+    
+  }
+
+  #fallos{
+    color: red;
+    
+    height: 40px;
+    width: 40px;
+    display: block;
+    margin-left: 105px;
+    padding-top: 20px;
+  }
+
+  #marcador{
+    background-image: url(marcador.jpg);
+    width: 150px;
+    height: 120px;
+    margin: auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+    justify-content: center;
+  }
+
+
+  #colocar{
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(111, 152, 54);
+    color: white;
+  }
+  
+  #colocar:hover{
+    color: rgb(111, 152, 54);
+    background-color: white;
+    transition: 0.7s;
+  }
+  .numero {
+    font-size: 35px;
+    display: block; 
+    margin: 0 auto;
+  }
+
+  
+  
+
+
+
